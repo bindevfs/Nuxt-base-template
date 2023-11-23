@@ -1,3 +1,5 @@
+import {acceptHMRUpdate} from "pinia";
+
 export const useCountStore = defineStore('CountStore', {
   state: () => {
     return {
