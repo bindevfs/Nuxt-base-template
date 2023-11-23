@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: NuxtBase
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/frontend
+      - /frontend/node_modules
+    command: pnpm dev
+    ports:
+      - "9090:9090"
+    env_file: .env
