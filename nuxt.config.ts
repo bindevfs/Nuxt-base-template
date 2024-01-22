@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     ...(isDevelopment || isWindows) ? [] : ['nuxt-security']
   ],
-  css: [],
+  css: ['~/assets/css/main.css'],
   alias: {
     'querystring': 'rollup-plugin-node-polyfills/polyfills/qs',
     'change-case': 'scule',
@@ -44,11 +44,6 @@ export default defineNuxtConfig({
     define: {},
     build: {
       target: 'esnext',
-    },
-  },
-  postcss: {
-    plugins: {
-      'postcss-nested': {},
     },
   },
   i18n,
@@ -154,6 +149,12 @@ export default defineNuxtConfig({
         const noExternal = config.ssr!.noExternal as string[]
         noExternal.push('vue-i18n')
       }
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   }
 })
