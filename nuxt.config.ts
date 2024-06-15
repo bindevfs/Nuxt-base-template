@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     ...(isDevelopment || isWindows) ? [] : ['nuxt-security']
   ],
-  css: [],
+  css: ['~/assets/css/main.css'],
   alias: {
     'querystring': 'rollup-plugin-node-polyfills/polyfills/qs',
     'change-case': 'scule',
