@@ -5,7 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
@@ -17,7 +17,15 @@ module.exports = {
   },
   plugins: ['vue', 'prettier', '@typescript-eslint', 'unicorn'],
   rules: {
-    'no-trailing-spaces': 'error',
+    indent: ['error', 2],
+    'no-multi-spaces': ['error', { ignoreEOLComments: false }],
+    'no-duplicate-imports': 'error',
+    'no-unused-vars': [
+      'error',
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: false }
+    ],
+    'no-multiple-empty-lines': ['error', {max: 1}],
+    'space-in-parens': ['error', 'always'],
     'unicorn/no-for-loop': 'error',
     'brace-style': ['error', '1tbs', { allowSingleLine: false }],
     'no-restricted-syntax': [
@@ -32,10 +40,14 @@ module.exports = {
     'no-var': 'error',
     'linebreak-style': 0,
     quotes: ['error', 'single'],
-    semi: ['error', 'never'],
+    semi: ['error', 'always'],
+    'keyword-spacing': ['error', {
+      before: true,
+      after: true
+    }],
     'max-classes-per-file': ['error', 2],
     'sort-imports': [
-      'warn',
+      'error',
       {
         ignoreDeclarationSort: true,
         allowSeparatedGroups: true,
@@ -80,4 +92,4 @@ module.exports = {
       },
     },
   ],
-}
+};
