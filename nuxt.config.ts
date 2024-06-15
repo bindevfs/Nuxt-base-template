@@ -2,6 +2,9 @@ import { createResolver } from '@nuxt/kit'
 import { isDevelopment, isWindows } from 'std-env'
 const { resolve } = createResolver(import.meta.url)
 import { i18n } from './config/i18n'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+
 export default defineNuxtConfig({
   components: [
     {
@@ -45,10 +48,31 @@ export default defineNuxtConfig({
     build: {
       target: 'esnext',
     },
+    plugins: [
+      Components({
+        resolvers: [
+          AntDesignVueResolver({
+            importStyle: 'less',
+          }),
+        ],
+      }),
+    ],
+    ssr: {
+      noExternal: ['ant-design-vue', 'dayjs'],
+    },
+    css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+        },
+      },
+    },
   },
   postcss: {
     plugins: {
       'postcss-nested': {},
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
   i18n,
@@ -143,10 +167,6 @@ export default defineNuxtConfig({
       },
     },
     rateLimiter: false,
-  },
-  devServer: {
-    port: 9090,
-    host: '0'
   },
   hooks: {
     'vite:extendConfig': function (config, { isServer }) {
