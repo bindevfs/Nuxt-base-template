@@ -29,21 +29,28 @@
     "eslint-plugin-unicorn": "^42.0.0",
     "eslint-plugin-vue": "^9.17.0",
     "nuxt": "3.7.0",
+    "less": "^4.2.0",
     "nuxt-security": "^0.14.4",
     "postcss": "^8.4.33",
     "postcss-nested": "^6.0.1",
-    "tailwindcss": "^3.4.1",
+    "sass": "^1.72.0",
     "typescript": "4.9.3",
     "vue-eslint-parser": "^9.3.1",
-    "vue-tsc": "^1.8.8"
+    "vue-tsc": "^1.8.8",
+    "tailwindcss": "^3.4.1",
+    "unplugin-vue-components": "^0.24.1"
   },
   "dependencies": {
     "@nuxtjs/i18n": "8.0.0-beta.10",
     "@pinia/nuxt": "^0.4.11",
     "pinia": "^2.1.6",
-    "stale-dep": "^0.7.0"
+    "stale-dep": "^0.7.0",
+    "ant-design-vue": "^3.2.15"
   },
   "overrides": {
     "vue": "latest"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
   }
 }
